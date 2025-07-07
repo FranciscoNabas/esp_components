@@ -1,0 +1,48 @@
+menu "HD44780 LCD Display"
+    config I2C_LCD_DEVICE_ADDRESS
+        hex "I2C device address"
+        default 0x27
+        help
+            The I2C address from the LCD module.
+
+    config I2C_LCD_COLUMNS
+        int "Number of columns"
+        default 16
+        range 0 100
+        help
+            The number of character columns.
+
+    config I2C_LCD_ROWS
+        int "Number of rows"
+        default 2
+        range 0 50
+        help
+            The number of lines.
+
+    config I2C_LCD_SCL_GPIO
+        int "SCL pin number"
+        default -1
+        help
+            The GPIO number for the SCL pin.
+
+    config I2C_LCD_SDA_GPIO
+        int "SDA pin number"
+        default -1
+        help
+            The GPIO number for the SDA pin.
+
+    choice
+        prompt "I2C bus clock Hertz"
+        default I2C_LCD_CLK_400000
+
+        config I2C_LCD_CLK_100000
+            bool "100KHz (standard)"
+
+        config I2C_LCD_CLK_400000
+            bool "400KHz (fast mode)"
+
+        config I2C_LCD_CLK_1000000
+            bool "1MHz (fast mode plus)"
+        
+    endchoice
+endmenu

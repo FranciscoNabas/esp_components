@@ -1,0 +1,28 @@
+menu "SHT4X Sensors"
+    config SHT4X_SCL_GPIO
+        int "SCL pin number"
+        default -1
+        help
+            The GPIO number for the SCL pin.
+
+    config SHT4X_SDA_GPIO
+        int "SDA pin number"
+        default -1
+        help
+            The GPIO number for the SDA pin.
+
+    choice
+        prompt "I2C bus clock Hertz"
+        default SHT4X_CLK_100000
+
+        config SHT4X_CLK_100000
+            bool "100KHz (standard)"
+
+        config SHT4X_CLK_400000
+            bool "400KHz (fast mode)"
+
+        config SHT4X_CLK_1000000
+            bool "1MHz (fast mode plus)"
+        
+    endchoice
+endmenu

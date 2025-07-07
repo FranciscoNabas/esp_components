@@ -1,0 +1,19 @@
+menu "Rotary Encoder Configuration"
+	config ROTARY_ENC_A_GPIO
+		int "Pin A GPIO"
+		default  -1
+		help
+			GPIO number of the pin A.
+
+	config ROTARY_ENC_B_GPIO
+		int "Pin B GPIO"
+		default  -1
+		help
+			GPIO number of the pin B.
+
+	config ROTARY_ENC_SW_GPIO
+		int "Pin Switch GPIO"
+		default  -1
+		help
+			GPIO number of the pin Switch.
+endmenu
